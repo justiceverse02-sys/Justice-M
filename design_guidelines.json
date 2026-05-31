@@ -1,0 +1,135 @@
+{
+  "brand": "JusticeVerse",
+  "theme": "Dark Luxury",
+  "archetype": "5 (Luxury)",
+  "color_palette": {
+    "css_variables": {
+      "--background": "10 10 10",
+      "--foreground": "255 255 240",
+      "--card": "20 20 20",
+      "--card-foreground": "255 255 240",
+      "--popover": "20 20 20",
+      "--popover-foreground": "255 255 240",
+      "--primary": "255 255 240",
+      "--primary-foreground": "10 10 10",
+      "--secondary": "212 175 55",
+      "--secondary-foreground": "10 10 10",
+      "--muted": "39 39 42",
+      "--muted-foreground": "161 161 170",
+      "--accent": "212 175 55",
+      "--accent-foreground": "10 10 10",
+      "--border": "255 255 255",
+      "--border-opacity": "0.1",
+      "--input": "39 39 42",
+      "--ring": "212 175 55",
+      "--radius": "1rem"
+    },
+    "core": {
+      "background": "#0A0A0A",
+      "ivory_white": "#FFFFF0",
+      "gold_accent": "#D4AF37",
+      "obsidian_surface": "rgba(255, 255, 255, 0.03)",
+      "subtle_border": "rgba(255, 255, 255, 0.1)"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "headings": "Cormorant Garamond, serif",
+      "body": "Manrope, sans-serif",
+      "monospace": "Space Mono, monospace"
+    },
+    "scales": {
+      "h1": "text-5xl md:text-6xl font-light tracking-tighter uppercase",
+      "h2": "text-3xl md:text-4xl font-light tracking-tight",
+      "h3": "text-xl md:text-2xl font-medium",
+      "body": "text-base leading-relaxed text-zinc-400",
+      "labels": "text-xs font-mono uppercase tracking-[0.2em] text-[#FFFFF0]/70"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "rounded-full bg-[#FFFFF0] text-black hover:bg-[#E5E5D8] px-8 py-3 text-sm font-medium transition-all duration-300",
+      "secondary": "rounded-full bg-transparent border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 px-8 py-3 text-sm font-medium transition-all duration-300",
+      "glass": "rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-[#FFFFF0] hover:bg-white/10 px-8 py-3 text-sm font-medium",
+      "pill_ivory": "rounded-full bg-[#FFFFF0] text-black hover:bg-[#E5E5D8] px-6 py-2 text-xs font-semibold uppercase tracking-wider"
+    },
+    "cards": {
+      "glassmorphism": "bg-black/40 backdrop-blur-2xl border border-white/10 rounded-2xl p-8 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-transform hover:-translate-y-1 hover:border-white/20"
+    },
+    "pills": {
+      "category": "border border-white/20 text-[#FFFFF0]/70 font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] px-4 py-1.5 rounded-full"
+    },
+    "logo": {
+      "style": "w-12 h-12 rounded-full border border-[#D4AF37] bg-[#FFFFF0] text-black flex items-center justify-center font-serif text-xl tracking-tighter font-bold"
+    }
+  },
+  "pages_blueprint": {
+    "homepage": {
+      "hero": {
+        "headline": "Democratizing Law Through Technology",
+        "subheadline": "India's most advanced AI legal workspace for lawyers, judges, students, researchers and law firms.",
+        "ctas": [
+          "Consult JusticeBot AI",
+          "Explore Knowledge Hub"
+        ],
+        "layout": "Centered massive serif headline, glowing gold accents, abstract dark background image with heavy vignette. Use crystal glassmorphism nav."
+      },
+      "modules_showcase": "Bento grid layout showing cards for JusticeBot, Indian Legal Database, and Knowledge Hub. Use glassmorphism cards."
+    },
+    "justicebot_chat": {
+      "layout": "Sidebar with history, main chat area. Dark sophisticated chat bubbles. User bubbles: subtle glassmorphism. AI bubbles: dark surface with subtle gold border. Include language selector (English/Hindi/Gujarati).",
+      "disclaimer": "AI responses are for legal research assistance only and do not constitute legal advice."
+    },
+    "indian_legal_database": {
+      "layout": "Search bar with deep focus state. Sidebar filters for Supreme Court / High Court / Statutes / Corporate. Search results in crisp, minimal list view with monospace metadata tags (LEGAL SOURCE, DATE)."
+    },
+    "knowledge_hub": {
+      "layout": "Editorial masonry grid. Large serif titles for articles. Monospace category pills and date labels. High contrast reading experience."
+    },
+    "careers": {
+      "layout": "Grid of glassmorphism job cards. Distinct 'Rs. 15,000 / Month' stipends highlighted in gold text. Ivory 'Quick Apply' pill buttons."
+    },
+    "auth": {
+      "layout": "Split screen: left side atmospheric legal background, right side minimalist login form with Google login integration. Inputs: border-b only or subtle glassmorphism."
+    },
+    "pricing": {
+      "layout": "3-column pricing tier (Free / Student / Advocate / Law Firm). Highlight 'Advocate' with a subtle glowing gold border."
+    },
+    "admin_dashboard": {
+      "layout": "Strict grid hierarchy, cardless or ultra-minimal borders. Sidebar navigation. High-density data tables for content management, judgment upload, and analytics."
+    }
+  },
+  "media_assets": {
+    "hero_background": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/e8e2ab20-531a-4e8a-8ea0-d87bf94da2cc/images/445c81c745ca3d176712e81188522531aa2f68336af5096d26ba9f3dbd7103f5.png",
+      "description": "Cinematic dark background with subtle gold geometric lines. Use for Hero background."
+    },
+    "scales_of_justice": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/e8e2ab20-531a-4e8a-8ea0-d87bf94da2cc/images/2f2c3901146e2ffea21b042f8e1456842b00baefafd44feb9222ea03bdb7e4d9.png",
+      "description": "Premium 3D scales of justice in gold against black background. Use in footer or Auth section."
+    },
+    "knowledge_hub_bg": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/e8e2ab20-531a-4e8a-8ea0-d87bf94da2cc/images/a9a88a0da73488e0a9835d29d84b3a23cc9385a036fed78697011db8f59b631c.png",
+      "description": "Abstract legal document hologram. Good for Knowledge Hub header."
+    },
+    "supreme_court_bw": {
+      "url": "https://images.unsplash.com/photo-1678440515574-0dc75039b8fe?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwyfHxzdXByZW1lJTIwY291cnQlMjBidWlsZGluZyUyMHNpbGhvdWV0dGV8ZW58MHx8fHwxNzgwMjIwNjI0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Black and white Supreme Court building silhouette."
+    },
+    "lawyer_working": {
+      "url": "https://images.unsplash.com/photo-1572423589021-a294e9ef8b85?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwzfHxsYXd5ZXIlMjB3b3JraW5nJTIwZGFyayUyMG1vZGVybiUyMG9mZmljZXxlbnwwfHx8fDE3ODAyMjA2MjR8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Lawyer working at a desk in a dark room. Good for Careers or About section."
+    }
+  },
+  "testing_and_accessibility": {
+    "data_testid_rule": "All interactive and key informational elements MUST include a data-testid attribute using kebab-case role-based naming (e.g., data-testid='login-submit-button').",
+    "contrast": "Ensure ivory text on black background meets WCAG AAA standards. Use APCA for evaluating text over glassmorphism."
+  },
+  "instructions_to_main_agent": {
+    "framework": "React JS, Tailwind CSS, Shadcn UI (.js files ONLY, NO .tsx).",
+    "theme_setup": "Force dark mode. Do not include light mode toggle unless strictly required. Set global background to #0A0A0A.",
+    "fonts_setup": "Import Cormorant Garamond, Manrope, and Space Mono from Google Fonts.",
+    "icons": "Use lucide-react. For the footer scales-of-justice icon, use the provided scales_of_justice image asset or a custom SVG.",
+    "component_overrides": "Override Shadcn cards to use the defined glassmorphism classes. Override Shadcn buttons to be pill-shaped (`rounded-full`)."
+  }
+}
