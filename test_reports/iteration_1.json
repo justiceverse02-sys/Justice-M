@@ -1,0 +1,44 @@
+{
+  "summary": "Comprehensive backend + frontend testing of JusticeVerse. Backend 37/38 pytest passing (97%). Frontend critical flows verified: homepage, JusticeBot AI chat (Gemini reply with disclaimer rendered), Legal DB, Knowledge Hub, Careers, Pricing (Razorpay test plans), registration -> /dashboard redirect. Only one bug surfaced: brute-force lockout never triggers in the preview environment because client IP rotates across proxy nodes.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {
+        "endpoint": "POST /api/auth/login",
+        "issue": "Brute-force lockout fails to trigger. login_attempts identifier is `{request.client.host}:{email}`, but the K8s ingress sends requests from rotating proxy IPs (observed 10.208.130.77 / 10.208.130.78). Each proxy IP gets its own counter capped at ~3, so the 5-attempt threshold is never crossed for a single identifier; the 6th wrong attempt returns 401 instead of 429. Fix: trust `X-Forwarded-For` (or `request.headers.get('x-forwarded-for')`), or key purely on the email."
+      }
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Global (unauth pages)", "issues": ["GET /api/auth/me fires on every page and logs 401 to console for visitors. Not a functional bug, but spams the console. Consider suppressing or using a silent fetch."]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Fix brute-force lockout in /app/backend/auth.py login() — use X-Forwarded-For (first IP) or key identifier on email only so the 5-attempt threshold actually triggers behind the K8s ingress.",
+    "(Optional polish) Silence console 401 spam from AuthContext on unauth public pages."
+  ],
+  "critical_code_review_comments": [
+    "auth.py login(): brute-force identifier uses request.client.host which is a proxy IP in K8s -> lockout broken (see RCA).",
+    "routes_payments.py: rzp_client is created at import time with module-level env vars; if RAZORPAY_KEY_ID is missing the import fails silently. Consider lazy init + clear error.",
+    "routes_admin.py /admin/stats uses `async for` inside sum([...]) which evaluates the entire cursor in memory; fine for now but won't scale past a few thousand payments.",
+    "Frontend App.js: route is /database but the navbar label says LEGAL DATABASE. Naming inconsistency is acceptable but consider aliasing /legal-database for clarity / SEO.",
+    "auth.py google_session: stores raw session_token from Emergent and treats it as auth in _user_from_token. Works, but session_token is not signed by us; rotating Emergent's tokens would invalidate cookies. Acceptable for v1."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test.py (new comprehensive pytest suite — 38 tests across health/auth/chat/legal/hub/careers/saved/payments/admin)"
+  ],
+  "success_rate": {"backend": "97% (37/38)", "frontend": "100% on smoke-tested flows"},
+  "test_credentials": "Admin admin@justiceverse.in / JusticeVerse@2026 verified (returns role=admin). Test users created on the fly via /api/auth/register (e.g. test_user_<rand>@example.com / TestPass@123).",
+  "seed_data_creation": "Seed already populated by backend startup (8 legal docs, 3 articles, 4 news, 5 vacancies). Tests created TEST_-prefixed items via admin endpoints and cleaned them up.",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend pytest suite at /app/backend/tests/backend_test.py covers all required endpoints — re-run with `pytest /app/backend/tests/backend_test.py -v`. After main agent fixes brute-force lockout, only the test_brute_force_lockout test needs to be re-verified. JusticeBot AI replies take ~10-25s, tests have 60s timeouts. Razorpay live checkout cannot be automated; only order-create + signature-mismatch are tested. Frontend nav routes are /, /justicebot, /database, /knowledge-hub, /careers, /pricing, /login, /register, /dashboard, /admin (do NOT use /legal-database — it doesn't exist).",
+  "rca_of_the_issue": "Brute-force lockout: identifier=`{request.client.host}:{email}`. In Kubernetes ingress the preview routes through multiple nginx/proxy pods, so request.client.host alternates between (at least) 10.208.130.77 and 10.208.130.78. After 6 wrong attempts from one client, attempts were split as count=3 on one identifier and count=3 on the other — neither hits >=5. Reproduce: `for i in $(seq 1 8); do curl -s -o /dev/null -w '%{http_code}\\n' -X POST $URL/api/auth/login -H 'Content-Type: application/json' -d '{\"email\":\"x@x\",\"password\":\"wrong\"}'; done` → all 401. Fix: use `request.headers.get('x-forwarded-for', '').split(',')[0].strip() or request.client.host` as the IP component, or drop IP and key only on email (simplest)."
+}

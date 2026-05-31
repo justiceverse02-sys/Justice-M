@@ -1,0 +1,10 @@
+{
+  "short_name": "JusticeVerse",
+  "name": "JusticeVerse — Prestige AI Legal Workspace",
+  "description": "India's most advanced AI legal workspace for lawyers, judges, students and law firms.",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0A0A0A",
+  "background_color": "#0A0A0A"
+}
