@@ -49,3 +49,12 @@ students, researchers and law firms. 8 modules + owner dashboard + monetization.
 
 ## Credentials
 See /app/memory/test_credentials.md (admin@justiceverse.in / JusticeVerse@2026).
+
+## Iteration 2 (2026-05-31) — Requested changes
+- Removed "Prestige AI Workspace" tagline; removed "Judgments Indexed" stat.
+- Renamed: JusticeBot AI → JusticeVerse AI (bot "Verse AI"); DraftGen → VerseDraft; Indian Legal Database → Cases & Interpretation (/cases); Law Firm Workspace card → Subscription.
+- New top nav (one-click tools): JusticeVerse AI, Counsel AI, Cases & Interpretation (+ Knowledge Hub, Careers, Subscription). Nav moved to xl breakpoint to fit cleanly.
+- NEW **Counsel AI** page (/counsel) — VerseDraft Studio: pick document type (bail/writ/plaint/NDA…), output language, matter details → AI-generated draft with Copy/Download. Backend POST /api/draft (auth required).
+- Free AI questions reduced 5 → 4.
+- Languages expanded to 11 (English, Hindi, Gujarati, Marathi, Tamil, Telugu, Bengali, Kannada, Punjabi, Malayalam, Urdu) via dropdown on chat + Counsel AI.
+- Tested: iteration_2.json backend 5/5, frontend 100% smoke.
