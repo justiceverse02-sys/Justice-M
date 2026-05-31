@@ -8,11 +8,8 @@ export const Logo = ({ size = "md" }) => {
         JV
       </div>
       <div className="leading-none">
-        <div className="font-serif text-xl sm:text-2xl tracking-[0.18em] text-[#FFFFF0]">
+        <div className="font-serif text-xl sm:text-2xl tracking-[0.18em] text-[#FFFFF0] whitespace-nowrap">
           JUSTICE VERSE
-        </div>
-        <div className="font-mono text-[9px] sm:text-[10px] tracking-[0.3em] text-zinc-500 mt-1">
-          PRESTIGE AI WORKSPACE
         </div>
       </div>
     </div>

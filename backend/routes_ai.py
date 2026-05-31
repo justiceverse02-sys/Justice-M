@@ -7,11 +7,11 @@ from typing import Optional, List
 
 from db import db
 from auth import get_current_user, get_optional_user
-from ai import justicebot_reply, DISCLAIMER
+from ai import justicebot_reply, draft_reply, DISCLAIMER
 
 ai_router = APIRouter(prefix="/api", tags=["justicebot"])
 
-FREE_LIMIT = 5  # messages for visitors / free users per session lifetime (visitor uses temp session)
+FREE_LIMIT = 4  # AI questions for visitors per session lifetime (visitor uses temp session)
 
 
 class ChatReq(BaseModel):
@@ -76,6 +76,24 @@ async def my_sessions(user=Depends(get_current_user)):
 @ai_router.get("/chat/{session_id}/messages")
 async def session_messages(session_id: str):
     return await db.chat_messages.find({"session_id": session_id}, {"_id": 0}).sort("created_at", 1).to_list(500)
+
+
+# ---------- Counsel AI / VerseDraft drafting ----------
+class DraftReq(BaseModel):
+    draft_type: str
+    details: str
+    language: str = "en"
+
+
+@ai_router.post("/draft")
+async def generate_draft(body: DraftReq, user=Depends(get_optional_user)):
+    if not user:
+        raise HTTPException(status_code=401, detail="Please sign in to use Counsel AI drafting.")
+    try:
+        text = await draft_reply(body.draft_type, body.details, body.language)
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"AI service error: {e}")
+    return {"draft": text, "disclaimer": DISCLAIMER}
 
 
 # ---------- saved items / folders ----------

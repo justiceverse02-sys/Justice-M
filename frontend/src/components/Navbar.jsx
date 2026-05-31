@@ -5,11 +5,12 @@ import { Logo } from "@/components/Logo";
 import { useAuth } from "@/context/AuthContext";
 
 const NAV_LINKS = [
-  { to: "/justicebot", label: "JusticeBot AI" },
-  { to: "/database", label: "Legal Database" },
+  { to: "/justicebot", label: "JusticeVerse AI" },
+  { to: "/counsel", label: "Counsel AI" },
+  { to: "/cases", label: "Cases & Interpretation" },
   { to: "/knowledge-hub", label: "Knowledge Hub" },
   { to: "/careers", label: "Careers" },
-  { to: "/pricing", label: "Pricing" },
+  { to: "/pricing", label: "Subscription" },
 ];
 
 export const Navbar = () => {
@@ -34,13 +35,13 @@ export const Navbar = () => {
           <Logo size="sm" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-9">
+        <nav className="hidden xl:flex items-center gap-6">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               data-testid={`nav-link-${l.to.replace("/", "")}`}
-              className={`font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+              className={`font-mono text-[11px] uppercase tracking-[0.14em] whitespace-nowrap transition-colors ${
                 location.pathname === l.to ? "text-[#D4AF37]" : "text-zinc-400 hover:text-[#FFFFF0]"
               }`}
             >
@@ -49,7 +50,7 @@ export const Navbar = () => {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden xl:flex items-center gap-4 shrink-0 ml-8">
           {user ? (
             <>
               {user.role === "admin" && (
@@ -97,7 +98,7 @@ export const Navbar = () => {
         </div>
 
         <button
-          className="lg:hidden text-[#FFFFF0]"
+          className="xl:hidden text-[#FFFFF0]"
           onClick={() => setOpen(!open)}
           data-testid="nav-mobile-toggle"
           aria-label="Toggle menu"
@@ -107,7 +108,7 @@ export const Navbar = () => {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-white/5 bg-[#0A0A0A] px-5 py-6 space-y-5" data-testid="mobile-menu">
+        <div className="xl:hidden border-t border-white/5 bg-[#0A0A0A] px-5 py-6 space-y-5" data-testid="mobile-menu">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.to}

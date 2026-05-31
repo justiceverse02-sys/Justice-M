@@ -12,19 +12,18 @@ const HERO_BG =
   "https://static.prod-images.emergentagent.com/jobs/e8e2ab20-531a-4e8a-8ea0-d87bf94da2cc/images/445c81c745ca3d176712e81188522531aa2f68336af5096d26ba9f3dbd7103f5.png";
 
 const MODULES = [
-  { icon: Sparkles, title: "JusticeBot AI", desc: "Conversational legal research with citations, case summaries and answers in English, Hindi & Gujarati.", to: "/justicebot" },
-  { icon: Search, title: "Indian Legal Database", desc: "Search Supreme Court, High Court, Tribunal & statute archives from 1947 onwards.", to: "/database" },
+  { icon: Sparkles, title: "JusticeVerse AI", desc: "Conversational legal research with citations, case summaries and answers in 11+ languages.", to: "/justicebot" },
+  { icon: Gavel, title: "Counsel AI", desc: "Powered by the VerseDraft engine — generate bail applications, writs, plaints, NDAs & agreements.", to: "/counsel" },
+  { icon: Search, title: "Cases & Interpretation", desc: "Search & interpret Supreme Court, High Court, Tribunal & statute archives from 1947 onwards.", to: "/cases" },
   { icon: FileText, title: "CaseBrief AI", desc: "Upload judgments to auto-generate briefs, timelines, ratio decidendi & citations.", to: "/justicebot" },
-  { icon: Gavel, title: "DraftGen AI", desc: "Generate bail applications, writs, plaints, NDAs & corporate agreements.", to: "/justicebot" },
   { icon: GraduationCap, title: "PrepMate AI", desc: "Judiciary & law exam prep — quizzes, mock tests, bare-act learning & study plans.", to: "/justicebot" },
   { icon: BookOpen, title: "Knowledge Hub", desc: "Vetted articles, research papers & an AI-summarised daily legal news digest.", to: "/knowledge-hub" },
   { icon: Briefcase, title: "Careers & Internships", desc: "Internships, clerkships, associate roles & government legal vacancies.", to: "/careers" },
-  { icon: Building2, title: "Law Firm Workspace", desc: "Matter management, hearing tracker, calendar & team collaboration for firms.", to: "/pricing" },
+  { icon: Building2, title: "Subscription", desc: "Flexible plans for students, advocates & law firms — unlock the full workspace.", to: "/pricing" },
 ];
 
 const STATS = [
-  { value: "1947+", label: "Judgments Indexed" },
-  { value: "3", label: "Languages Supported" },
+  { value: "11+", label: "Languages Supported" },
   { value: "8", label: "AI Workspaces" },
   { value: "24/7", label: "Research Assistant" },
 ];
@@ -79,7 +78,7 @@ export default function Home() {
               data-testid="hero-justicebot-btn"
               className="group rounded-full bg-[#FFFFF0] text-black hover:bg-[#E5E5D8] px-8 py-4 text-sm font-semibold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
             >
-              Consult JusticeBot AI
+              Consult JusticeVerse AI
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
@@ -95,7 +94,7 @@ export default function Home() {
 
       {/* STATS */}
       <section className="border-y border-white/5 bg-white/[0.015]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/5">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-3 divide-x divide-white/5">
           {STATS.map((s) => (
             <div key={s.label} className="py-10 px-4 text-center">
               <div className="font-serif text-4xl sm:text-5xl text-[#FFFFF0]">{s.value}</div>

@@ -20,7 +20,7 @@ rzp_client = razorpay.Client(auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET))
 # Server-side authoritative plan pricing (amount in paise / month)
 PLANS = {
     "free": {"name": "Free", "amount": 0, "tagline": "For curious citizens & students exploring the law",
-             "features": ["Read articles & legal news", "Search judgments", "Limited JusticeBot AI (5 queries)", "View vacancies"]},
+             "features": ["Read articles & legal news", "Search judgments", "Limited Verse AI (4 queries)", "View vacancies"]},
     "student": {"name": "Student", "amount": 29900, "tagline": "For law students & exam aspirants",
                 "features": ["Unlimited searches", "Save judgments & articles", "AI legal research", "PrepMate exam prep", "Download reports"]},
     "advocate": {"name": "Advocate", "amount": 99900, "tagline": "For practising advocates & researchers",

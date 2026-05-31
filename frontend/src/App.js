@@ -9,6 +9,7 @@ import { ProtectedRoute } from "@/components/ProtectedRoute";
 
 import Home from "@/pages/Home";
 import JusticeBot from "@/pages/JusticeBot";
+import CounselAI from "@/pages/CounselAI";
 import LegalDatabase from "@/pages/LegalDatabase";
 import KnowledgeHub from "@/pages/KnowledgeHub";
 import Careers from "@/pages/Careers";
@@ -35,6 +36,8 @@ function AppRouter() {
     <Routes>
       <Route path="/" element={<Layout><Home /></Layout>} />
       <Route path="/justicebot" element={<Layout><JusticeBot /></Layout>} />
+      <Route path="/counsel" element={<Layout><CounselAI /></Layout>} />
+      <Route path="/cases" element={<Layout><LegalDatabase /></Layout>} />
       <Route path="/database" element={<Layout><LegalDatabase /></Layout>} />
       <Route path="/knowledge-hub" element={<Layout><KnowledgeHub /></Layout>} />
       <Route path="/careers" element={<Layout><Careers /></Layout>} />

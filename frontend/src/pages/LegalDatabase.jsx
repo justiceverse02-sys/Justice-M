@@ -49,9 +49,9 @@ export default function LegalDatabase() {
   return (
     <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12" data-testid="legal-database-page">
       <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Module 02</span>
-      <h1 className="font-serif text-4xl sm:text-5xl font-light text-[#FFFFF0] mt-3">Indian Legal Database</h1>
+      <h1 className="font-serif text-4xl sm:text-5xl font-light text-[#FFFFF0] mt-3">Cases &amp; Interpretation</h1>
       <p className="text-zinc-400 mt-4 max-w-2xl">
-        Case laws, statutes & journals — regional court reports and corporate regulations indexed from 1947 onwards.
+        Search & interpret case laws, statutes & journals — court reports and corporate regulations indexed from 1947 onwards.
       </p>
 
       {/* Filters */}

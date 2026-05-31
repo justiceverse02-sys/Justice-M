@@ -3,11 +3,20 @@ import { Send, Sparkles, Globe, Loader2, User } from "lucide-react";
 import api, { formatApiErrorDetail } from "@/lib/api";
 import { Disclaimer } from "@/components/Disclaimer";
 import { toast } from "@/components/ui/sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const LANGS = [
   { code: "en", label: "English" },
-  { code: "hi", label: "हिन्दी" },
-  { code: "gu", label: "ગુજરાતી" },
+  { code: "hi", label: "हिन्दी · Hindi" },
+  { code: "gu", label: "ગુજરાતી · Gujarati" },
+  { code: "mr", label: "मराठी · Marathi" },
+  { code: "ta", label: "தமிழ் · Tamil" },
+  { code: "te", label: "తెలుగు · Telugu" },
+  { code: "bn", label: "বাংলা · Bengali" },
+  { code: "kn", label: "ಕನ್ನಡ · Kannada" },
+  { code: "pa", label: "ਪੰਜਾਬੀ · Punjabi" },
+  { code: "ml", label: "മലയാളം · Malayalam" },
+  { code: "ur", label: "اردو · Urdu" },
 ];
 
 const SUGGESTIONS = [
@@ -55,22 +64,22 @@ export default function JusticeBot() {
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#D4AF37] flex items-center gap-2">
             <Sparkles className="w-4 h-4" /> Module 01
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl font-light text-[#FFFFF0] mt-3">JusticeBot AI</h1>
+          <h1 className="font-serif text-4xl sm:text-5xl font-light text-[#FFFFF0] mt-3">JusticeVerse AI</h1>
         </div>
-        <div className="flex items-center gap-2 glass-card rounded-full px-2 py-2" data-testid="language-selector">
-          <Globe className="w-4 h-4 text-zinc-500 ml-2" />
-          {LANGS.map((l) => (
-            <button
-              key={l.code}
-              onClick={() => setLanguage(l.code)}
-              data-testid={`lang-${l.code}`}
-              className={`rounded-full px-3 py-1.5 text-xs font-mono transition-all ${
-                language === l.code ? "bg-[#FFFFF0] text-black" : "text-zinc-400 hover:text-[#FFFFF0]"
-              }`}
-            >
-              {l.label}
-            </button>
-          ))}
+        <div className="flex items-center gap-2 glass-card rounded-full pl-4 pr-2 py-1.5" data-testid="language-selector">
+          <Globe className="w-4 h-4 text-zinc-500" />
+          <Select value={language} onValueChange={setLanguage}>
+            <SelectTrigger className="w-[170px] bg-transparent border-0 text-sm focus:ring-0 text-[#FFFFF0]" data-testid="language-trigger">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent className="bg-[#141414] border-white/10 text-[#FFFFF0] max-h-72">
+              {LANGS.map((l) => (
+                <SelectItem key={l.code} value={l.code} data-testid={`lang-${l.code}`} className="text-sm focus:bg-white/10 focus:text-[#FFFFF0]">
+                  {l.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 

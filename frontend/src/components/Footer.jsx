@@ -18,8 +18,9 @@ export const Footer = () => (
         <div>
           <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500 mb-5">Modules</h4>
           <ul className="space-y-3 text-sm text-zinc-400">
-            <li><Link to="/justicebot" className="hover:text-[#D4AF37]">JusticeBot AI</Link></li>
-            <li><Link to="/database" className="hover:text-[#D4AF37]">Legal Database</Link></li>
+            <li><Link to="/justicebot" className="hover:text-[#D4AF37]">JusticeVerse AI</Link></li>
+            <li><Link to="/counsel" className="hover:text-[#D4AF37]">Counsel AI</Link></li>
+            <li><Link to="/cases" className="hover:text-[#D4AF37]">Cases &amp; Interpretation</Link></li>
             <li><Link to="/knowledge-hub" className="hover:text-[#D4AF37]">Knowledge Hub</Link></li>
             <li><Link to="/careers" className="hover:text-[#D4AF37]">Careers</Link></li>
           </ul>
@@ -27,7 +28,7 @@ export const Footer = () => (
         <div>
           <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500 mb-5">Platform</h4>
           <ul className="space-y-3 text-sm text-zinc-400">
-            <li><Link to="/pricing" className="hover:text-[#D4AF37]">Pricing</Link></li>
+            <li><Link to="/pricing" className="hover:text-[#D4AF37]">Subscription</Link></li>
             <li><Link to="/register" className="hover:text-[#D4AF37]">Create Account</Link></li>
             <li><Link to="/login" className="hover:text-[#D4AF37]">Sign In</Link></li>
           </ul>
